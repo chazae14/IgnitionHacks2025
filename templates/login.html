@@ -8,6 +8,24 @@
         <link rel="stylesheet" href="styles2.css">
     </head>
 
+    <header class="nav">
+        <a class="nav-brand" href="/">
+            <img class="nav-logo" src="hookIcon.png" alt="Hooked logo" />
+            <span class="nav-title">Hooked</span>
+        </a>
+
+        <nav aria-label="Primary">
+            <ul class="nav-links">
+            <li><a href="/login" aria-current="page">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/preferences">Preferences</a></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
     <body>
         <form action="/login" method="post">
             <input autocomplete="off" name="username" placeholder="Username" required type="text">
