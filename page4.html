@@ -1,5 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Details</title>
+  <style>
+    :root {
+      --bg: #3D0037;
+      --fg: #500243;
+      --button-bg: #6A0D5F;
+      --button-hover: #8A157D;
+    }
 
-  
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, Times, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.45;
+      perspective: 1500px;
+      padding: clamp(16px, 4vw, 40px);
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .card {
+      background: #F9F0F7;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, opacity 0.4s ease;
+      display: flex;
+      gap: 24px;
+      padding: clamp(16px, 2vw, 28px);
+    }
+
+    .left {
+      flex: 0 0 42%;
+    }
+
+    .left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* move text up */
+      gap: 12px;
+    }
+
+    .line-info {
+      font-size: clamp(16px, 2.2vw, 22px);
+    }
+
+    .line-info .label {
+      font-weight: bold;
+    }
+
+    .line-info .info {
+      font-weight: normal;
+      margin-left: 4px;
+    }
+
+    .plot-summary {
+      margin-top: 12px;
+      font-size: clamp(16px, 2.2vw, 22px);
+      line-height: 1.5;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      width: fit-content;
+      transition: background 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .back-btn:hover {
+      background: var(--button-hover);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <section class="card">
+      <div class="left">
+        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg" alt="Harry Potter Cover">
+      </div>
+      <div class="right">
+        <div class="line-info"><span class="label">Title:</span><span class="info">Harry Potter and the Sorcerer's Stone</span></div>
+        <div class="line-info"><span class="label">Author:</span><span class="info">J. K. Rowling</span></div>
+        <div class="line-info"><span class="label">Genres:</span><span class="info">Fantasy, Fiction, Young Adult, Magic, Children's, Middle Grade</span></div>
+        <div class="line-info"><span class="label">Publication Date:</span><span class="info">June 26, 1997</span></div>
+        <div class="line-info"><span class="label">Average Rating:</span><span class="info">4.47</span></div>
+        <div class="plot-summary">
+          <strong>Plot Summary:</strong> Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.
+        </div>
+        <button class="back-btn" onclick="window.history.back()">Back</button>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
