@@ -8,6 +8,8 @@
     :root {
       --bg: #3D0037;
       --fg: #500243;
+      --button-bg: #6A0D5F;
+      --button-hover: #8A157D;
     }
 
     * { box-sizing: border-box; }
@@ -84,6 +86,25 @@
       margin-left: 4px;
     }
 
+    .details-btn {
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      pointer-events: auto;
+      align-self: flex-start;
+    }
+
+    .details-btn:hover {
+      background: var(--button-hover);
+    }
+
   </style>
   <link rel="shortcut icon" type="image/x-icon" href="hookIcon.ico" />
 
@@ -102,8 +123,7 @@
           <div class="line-info"><span class="label">Genres:</span><span class="info">Fantasy, Fiction, Young Adult, Magic, Childrens', Middle Grade</span></div>
           <div class="line-info"><span class="label">Publication Date:</span><span class="info">First Published June 26 1997</span></div>
           <div class="line-info"><span class="label">Average Rating:</span><span class="info">4.47</span></div>
-        </div>
-
+          <button class="details-btn">Details</button>
         </div>
       </div>
     </section>
@@ -114,10 +134,13 @@
     let currentCard = document.querySelector('.card');
 
     function createNewCard() {
+      // Clone the current card
       const newCard = currentCard.cloneNode(true);
       
+      // Remove any animation classes
       newCard.classList.remove('slide-left', 'slide-right');
       
+      // Reset transform styles
       newCard.style.transform = '';
       
       // Insert the new card before the current one (so it's underneath)
@@ -137,6 +160,12 @@
       wrapper.addEventListener('mousemove', handleMouseMove);
       wrapper.addEventListener('mouseleave', handleMouseLeave);
       wrapper.addEventListener('click', handleClick);
+      
+      // Add click listener for the details button
+      const detailsBtn = currentCard.querySelector('.details-btn');
+      if (detailsBtn) {
+        detailsBtn.addEventListener('click', handleDetailsClick);
+      }
     }
 
     function handleMouseMove(e) {
@@ -145,9 +174,9 @@
       const third = rect.width / 3;
 
       if (x < third) {
-        currentCard.style.transform = `rotateZ(-5deg) translateY(-3px)`;
+        currentCard.style.transform = `rotateZ(-8deg) translateY(-5px)`;
       } else if (x > 2 * third) {
-        currentCard.style.transform = `rotateZ(5deg) translateY(-3px)`;
+        currentCard.style.transform = `rotateZ(8deg) translateY(-5px)`;
       } else {
         currentCard.style.transform = `rotateZ(0deg) translateY(0)`;
       }
@@ -158,6 +187,11 @@
     }
 
     function handleClick(e) {
+      // Don't trigger if clicking on the details button
+      if (e.target.classList.contains('details-btn')) {
+        return;
+      }
+      
       const rect = wrapper.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const third = rect.width / 3;
@@ -175,6 +209,11 @@
       
       // After animation completes, create a new card
       setTimeout(createNewCard, 400);
+    }
+
+    function handleDetailsClick(e) {
+        e.stopPropagation(); // Prevent triggering the card click
+        window.location.href = 'page4.html';
     }
 
     // Initial setup
