@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import random
@@ -68,6 +69,10 @@ def register():
         return render_template("register.html")
 
 @app.route("/page3", methods=["GET", "POST"])
+<<<<<<< HEAD
+=======
+
+>>>>>>> 50e5a1d9ad88956822ea1763cca2b7bccc5e7247
 def page3():
     if request.method == "POST":
         print()
@@ -129,3 +134,5 @@ def preferences():
         conn.close()
         
         return render_template("pref.html", row=row)
+
+

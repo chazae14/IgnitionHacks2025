@@ -1,4 +1,4 @@
-/* ====== Base ====== */
+/* Base */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
@@ -20,7 +20,7 @@ body{
   padding: 24px;
 }
 
-/* ====== Form Card ====== */
+/* Form Card */
 form{
   width: 100%;
   max-width: 420px;
@@ -61,7 +61,7 @@ form::after {
   z-index: 4; /* above the glow */
 }
 
-/* ====== Inputs ====== */
+/* Inputs */
 input{
   appearance: none;
   width: 100%;
@@ -91,7 +91,7 @@ input:invalid:focus{
   box-shadow: 0 0 0 4px var(--card);
 }
 
-/* ====== Button ====== */
+/* Button */
 button{
   border: 0;
   cursor: pointer;
