@@ -114,15 +114,15 @@
     <section class="card">
       <div class="split">
         <figure class="left">
-          <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg" alt="Descriptive alt text" />
+          <img src="{{book.cover_image_url}}" alt="Descriptive alt text" />
         </figure>
 
         <div class="right">
-          <div class="line-info"><span class="label">Title:</span><span class="info">Harry Potter and the Sorcerer's Stone</span></div>
-          <div class="line-info"><span class="label">Author:</span><span class="info">J. K. Rowling</span></div>
-          <div class="line-info"><span class="label">Genres:</span><span class="info">Fantasy, Fiction, Young Adult, Magic, Childrens', Middle Grade</span></div>
-          <div class="line-info"><span class="label">Publication Date:</span><span class="info">First Published June 26 1997</span></div>
-          <div class="line-info"><span class="label">Average Rating:</span><span class="info">4.47</span></div>
+          <div class="line-info"><span class="label">Title:</span><span class="info">{{book.book_title}}</span></div>
+          <div class="line-info"><span class="label">Author:</span><span class="info">{{book.author}}</span></div>
+          <div class="line-info"><span class="label">Genres:</span><span class="info">{{book.genres}}</span></div>
+          <div class="line-info"><span class="label">Publication Date:</span><span class="info">{{book.publication_info[0]}}</span></div>
+          <div class="line-info"><span class="label">Average Rating:</span><span class="info">{{book.average_rating}}</span></div>
           <button class="details-btn">Details</button>
         </div>
       </div>
