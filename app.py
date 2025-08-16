@@ -68,7 +68,6 @@ def register():
         return render_template("register.html")
 
 @app.route("/page3", methods=["GET", "POST"])
-
 def page3():
     if request.method == "POST":
         print()
