@@ -130,4 +130,3 @@ def preferences():
         conn.close()
         
         return render_template("pref.html", row=row)
-
