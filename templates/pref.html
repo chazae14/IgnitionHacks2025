@@ -14,35 +14,37 @@
                 <span class="site-name">Hooked</span>
             </header>
 
-            <section class="card">
-                <h1>Tell Us Your Preferences!</h1>
+            <form class="card" action="/preferences" method="post">
+                <section class="card">
+                    <h1>Tell Us Your Preferences!</h1>
 
-                <div class="section">
-                    <h2>Favorite Genres</h2>
-                    <div class="genres">
-                        <label class="pill"><input type="checkbox" name="genre" value="Fiction"><span>Fiction</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Non-Fiction"><span>Non-Fiction</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Fantasy"><span>Fantasy</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Science Fiction"><span>Science Fiction</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Mystery"><span>Mystery</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Thriller"><span>Thriller</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Horror"><span>Horror</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="Travel"><span>Travel</span></label>
-                        <label class="pill"><input type="checkbox" name="genre" value="History"><span>History</span></label>
+                    <div class="section">
+                        <h2>Favorite Genres</h2>
+                        <div class="genres">
+                            <label class="pill"><input type="checkbox" name="genre" value="Fiction"><span>Fiction</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Non-Fiction"><span>Non-Fiction</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Fantasy"><span>Fantasy</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Science Fiction"><span>Science Fiction</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Mystery"><span>Mystery</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Thriller"><span>Thriller</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Horror"><span>Horror</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="Travel"><span>Travel</span></label>
+                            <label class="pill"><input type="checkbox" name="genre" value="History"><span>History</span></label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="section">
-                    <h2>Top 3 Favorite Books</h2>
-                    <div class="grid">
-                        <input type="text" name="book1" placeholder="1st Favorite Book" required>
-                        <input type="text" name="book2" placeholder="2nd Favorite Book" required>
-                        <input type="text" name="book3" placeholder="3rd Favorite Book" required>
+                    <div class="section">
+                        <h2>Top 3 Favorite Books</h2>
+                        <div class="grid">
+                            <input type="text" name="book1" placeholder="1st Favorite Book" required>
+                            <input type="text" name="book2" placeholder="2nd Favorite Book" required>
+                            <input type="text" name="book3" placeholder="3rd Favorite Book" required>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="actions"><button type="submit">Submit</button>
+                    <div class="actions"><button type="submit">Submit</button>
+            </form>
         </div>
 
         <script>
