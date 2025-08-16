@@ -66,6 +66,7 @@ def register():
     else:
 
         return render_template("register.html")
+
 @app.route("/page3", methods=["GET", "POST"])
 def page3():
     if request.method == "POST":
@@ -78,3 +79,42 @@ def page3():
         books = [dict(row) for row in cursor.fetchall()]
         book = random.choice(books)
         return render_template("page3.html", book = book)
+    
+@app.route("/preferences", methods=["GET", "POST"])
+def preferences():
+    if request.method == "POST":
+        uid = session["user_id"]
+
+        genres = request.form.getlist("genre")[:3]
+        g1, g2, g3 = (genres + [None, None, None])[:3]
+
+        b1 = request.form.get("book1") or None
+        b2 = request.form.get("book2") or None
+        b3 = request.form.get("book3") or None
+        
+        conn = sqlite3.connect('users.db')
+        cur = conn.cursor()
+        cur.execute(""" UPDATE users
+                        SET genre1 = ?,
+                            genre2 = ?,
+                            genre3 = ?,
+                            book1  = ?,
+                            book2  = ?,
+                            book3  = ?
+                        WHERE id = ?""", 
+                        (g1, g2, g3, b1, b2, b3, uid))
+        conn.commit()
+        conn.close()
+
+        return redirect("/")
+    
+    else:
+        uid = session.get("user_id")
+        conn = sqlite3.connect('users.db')
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        cur.execute("SELECT genre1,genre2,genre3,book1,book2,book3 FROM users WHERE id = ?", (uid,))
+        row = cur.fetchone()
+        conn.close()
+        
+        return render_template("pref.html", row=row)
