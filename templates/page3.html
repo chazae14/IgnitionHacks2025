@@ -192,7 +192,7 @@
     <section class="card">
       <div class="split">
         <figure class="left">
-          <img src="{{book.cover_image_url}}" alt="Descriptive alt text">
+          <img src="{{book.cover_image_url}}" alt="Descriptive alt text" />
         </figure>
 
         <div class="right">
@@ -284,8 +284,10 @@
 
       if (x < third) {
         currentCard.classList.add('slide-left');
+        window.location.reload();
       } else if (x > 2 * third) {
         currentCard.classList.add('slide-right');
+        window.location.reload();
       }
       
       // After animation completes, create a new card
