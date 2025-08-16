@@ -103,16 +103,16 @@
   <main class="wrapper">
     <section class="card">
       <div class="left">
-        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg" alt="Harry Potter Cover">
+        <img src{{book.cover_image_url}}" alt="Book cover">
       </div>
       <div class="right">
-        <div class="line-info"><span class="label">Title:</span><span class="info">Harry Potter and the Sorcerer's Stone</span></div>
-        <div class="line-info"><span class="label">Author:</span><span class="info">J. K. Rowling</span></div>
-        <div class="line-info"><span class="label">Genres:</span><span class="info">Fantasy, Fiction, Young Adult, Magic, Children's, Middle Grade</span></div>
-        <div class="line-info"><span class="label">Publication Date:</span><span class="info">June 26, 1997</span></div>
-        <div class="line-info"><span class="label">Average Rating:</span><span class="info">4.47</span></div>
+        <div class="line-info"><span class="label">Title:</span><span class="info">{{book.book_title}}</span></div>
+        <div class="line-info"><span class="label">Author:</span><span class="info">{{book.author}}</span></div>
+        <div class="line-info"><span class="label">Genres:</span><span class="info">{{book.genres}}</span></div>
+        <div class="line-info"><span class="label">Publication Date:</span><span class="info">{{book.publication_info}}</span></div>
+        <div class="line-info"><span class="label">Average Rating:</span><span class="info">{{book.average_rating}}</span></div>
         <div class="plot-summary">
-          <strong>Plot Summary:</strong> Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.
+          <strong>Plot Summary:</strong>{{book.book_details}}
         </div>
         <button class="back-btn" onclick="window.history.back()">Back</button>
       </div>
