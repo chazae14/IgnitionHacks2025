@@ -121,9 +121,12 @@
           <div class="line-info"><span class="label">Title:</span><span class="info">{{book.book_title}}</span></div>
           <div class="line-info"><span class="label">Author:</span><span class="info">{{book.author}}</span></div>
           <div class="line-info"><span class="label">Genres:</span><span class="info">{{book.genres}}</span></div>
-          <div class="line-info"><span class="label">Publication Date:</span><span class="info">{{book.publication_info[0]}}</span></div>
+          <div class="line-info"><span class="label">Publication Date:</span><span class="info">{{book.publication_info}}</span></div>
           <div class="line-info"><span class="label">Average Rating:</span><span class="info">{{book.average_rating}}</span></div>
-          <button class="details-btn">Details</button>
+          <form action="/page4" method ="post">
+            <input type="hidden" name="book_id" value="{{book.book_id}}">
+            <button class="details-btn">Details</button>
+          </form>
         </div>
       </div>
     </section>
@@ -209,11 +212,6 @@
       
       // After animation completes, create a new card
       setTimeout(createNewCard, 400);
-    }
-
-    function handleDetailsClick(e) {
-        e.stopPropagation(); // Prevent triggering the card click
-        window.location.href = 'page4.html';
     }
 
     // Initial setup
