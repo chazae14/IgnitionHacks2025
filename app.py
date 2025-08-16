@@ -63,4 +63,17 @@ def register():
             conn.close()
             return "username unavailable"
     else:
+
         return render_template("register.html")
+@app.route("/page3", methods=["GET", "POST"])
+def page3():
+    if request.method == "POST":
+        print()
+    else:
+        conn = sqlite3.connect('books.db')
+        conn.row_factory = sqlite3.Row #makes it like a dictionary
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM books")
+        books = [dict(row) for row in cursor.fetchall()]
+        book = random.choice(books)
+        return render_template("page3.html", book = book)
