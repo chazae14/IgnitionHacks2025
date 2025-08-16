@@ -68,6 +68,7 @@ def register():
         return render_template("register.html")
 
 @app.route("/page3", methods=["GET", "POST"])
+@login_required
 def page3():
     if request.method == "POST":
         print()
@@ -79,6 +80,17 @@ def page3():
         books = [dict(row) for row in cursor.fetchall()]
         book = random.choice(books)
         return render_template("page3.html", book = book)
+
+@app.route("/page4", methods=["GET", "POST"])
+def page4():
+    if request.method == "POST":
+        conn = sqlite3.connect('books.db')
+        conn.row_factory = sqlite3.Row #makes it like a dictionary
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM books WHERE book_id = ?",(request.form.get("book_id"),))
+        book = cursor.fetchone()
+        conn.close()
+        return render_template("page4.html", book = dict(book))
     
 @app.route("/preferences", methods=["GET", "POST"])
 def preferences():
@@ -118,3 +130,4 @@ def preferences():
         conn.close()
         
         return render_template("pref.html", row=row)
+
